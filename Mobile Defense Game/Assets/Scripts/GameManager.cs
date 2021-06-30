@@ -5,6 +5,17 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+    public static GameManager instance { get; set; }
+
+    public void Awake()
+    {
+        if (instance == NULL)
+        {
+            instance = this;
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
     public Text seedText;
     public Text roundText;
     public Text roundStartText;
